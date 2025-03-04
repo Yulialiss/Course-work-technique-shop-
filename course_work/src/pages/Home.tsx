@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
+import { useCart } from "../context/CartContext";
 
 interface Product {
   _id: string;
@@ -11,11 +12,12 @@ interface Product {
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     getProducts()
       .then((data) => {
-        console.log("Отримані продукти:", data); 
+        console.log("Отримані продукти:", data);
         setProducts(data);
         setLoading(false);
       })
@@ -37,22 +39,19 @@ const Home: React.FC = () => {
           {products.map((product) => (
             <div key={product._id} className="col-md-4">
               <div className="card mb-4">
-                <img
-                  src={product.image}
-                  className="card-img-top"
-                  alt={product.name}
-                />
+                <img src={product.image} className="card-img-top" alt={product.name} />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.price} грн</p>
-                  <button className="btn btn-primary">Купити</button>
+                  <button className="btn btn-primary" onClick={() => addToCart(product)}>
+                    Купити
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       )}
-      
     </div>
   );
 };

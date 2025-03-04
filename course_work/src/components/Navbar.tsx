@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext"; 
 
 const Navbar: React.FC = () => {
+  const { cart } = useCart();
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Navbar</Link>
+        <Link className="navbar-brand" to="/">Магазин</Link>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -35,17 +38,22 @@ const Navbar: React.FC = () => {
               <input 
                 className="form-control me-2" 
                 type="search" 
-                placeholder="Search" 
+                placeholder="Пошук" 
                 aria-label="Search" 
               />
               <button className="btn btn-outline-success" type="submit">
-                Search
+                Пошук
               </button>
             </form>
            
-            <button className="btn btn-primary btn-lg ms-3">
+            <Link to="/cart" className="btn btn-primary btn-lg ms-3 position-relative">
               <i className="bi bi-cart-fill"></i>
-            </button>
+              {cart.length > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cart.length}
+                </span>
+              )}
+            </Link>
           </div>
         </div>
       </div>
