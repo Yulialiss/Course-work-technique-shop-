@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getProducts } from "../api/products";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom"; 
+import '../styles/Home.css';
 
 interface Product {
   _id: string;
   name: string;
   price: number;
   image: string;
+  description: string;
+  color: string; 
 }
+
 
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -17,8 +22,12 @@ const Home: React.FC = () => {
   useEffect(() => {
     getProducts()
       .then((data) => {
-        console.log("Отримані продукти:", data);
-        setProducts(data);
+        const productsWithDescription = data.map((product) => ({
+          ...product,
+          description: product.description || "Без опису", 
+          color: product.color || "Не вказано", 
+        }));
+        setProducts(productsWithDescription);
         setLoading(false);
       })
       .catch((error) => {
@@ -39,11 +48,22 @@ const Home: React.FC = () => {
           {products.map((product) => (
             <div key={product._id} className="col-md-4">
               <div className="card mb-4">
-                <img src={product.image} className="card-img-top" alt={product.name} />
+                <Link to={`/product/${product._id}`}>
+                  <img
+                    src={product.image}
+                    className="card-img-top"
+                    alt={product.name}
+                  />
+                </Link>
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-text">{product.price} грн</p>
-                  <button className="btn btn-primary" onClick={() => addToCart(product)}>
+                  <p className="card-text">Опис: {product.description}</p>
+                  <p className="card-text">Колір: {product.color}</p>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => addToCart(product)}
+                  >
                     Купити
                   </button>
                 </div>

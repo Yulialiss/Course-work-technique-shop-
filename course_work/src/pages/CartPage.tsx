@@ -1,8 +1,10 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const CartPage: React.FC = () => {
   const { cart, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate();
 
   return (
     <div className="container mt-4">
@@ -24,9 +26,14 @@ const CartPage: React.FC = () => {
               </li>
             ))}
           </ul>
-          <button className="btn btn-warning mt-3" onClick={clearCart}>
-            Очистити кошик
-          </button>
+          <div className="mt-3 d-flex justify-content-between">
+            <button className="btn btn-warning" onClick={clearCart}>
+              Очистити кошик
+            </button>
+            <button className="btn btn-success" onClick={() => navigate("/order")}>
+              Оформити замовлення
+            </button>
+          </div>
         </div>
       )}
     </div>

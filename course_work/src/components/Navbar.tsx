@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext"; 
+import { useCart } from "../context/CartContext";
+import "../styles/Navbar.css";
 
 const Navbar: React.FC = () => {
   const { cart } = useCart();
@@ -8,7 +9,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Магазин</Link>
+        <Link className="navbar-brand" to="/">
+            <img src="/images/logotech.png" alt="Логотип" className="logo" />
+        </Link>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -31,22 +34,16 @@ const Navbar: React.FC = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/contacts">Контакти</Link>
             </li>
+            <li className="nav-item">
+            <Link to="/login">Увійти</Link>
+            <Link to="/register">Зареєструватися</Link>
+              </li>
           </ul>
           
+          
           <div className="d-flex align-items-center">
-            <form className="d-flex" role="search">
-              <input 
-                className="form-control me-2" 
-                type="search" 
-                placeholder="Пошук" 
-                aria-label="Search" 
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Пошук
-              </button>
-            </form>
-           
-            <Link to="/cart" className="btn btn-primary btn-lg ms-3 position-relative">
+          
+         <Link to="/cart" className="btn btn-primary btn-lg ms-3 position-relative">
               <i className="bi bi-cart-fill"></i>
               {cart.length > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
