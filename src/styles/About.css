@@ -1,0 +1,10 @@
+.btn bttn about btn-primary { 
+    padding: 10px !important; /* Внутрішні поля кнопки */  
+    background-color: #FFA500 !important; /* Оранжевий колір фону */  
+    color: white !important; /* Білий текст */  
+    border: none !important; /* Без рамки */  
+    border-radius: 4px !important; /* Закруглені кути */  
+    font-size: 16px !important; /* Розмір шрифту */  
+    cursor: pointer !important; /* pointer курсор */  
+    transition: background-color 0.3s !important; /* Перехід кольору */  
+}  

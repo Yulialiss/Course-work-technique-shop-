@@ -1,0 +1,64 @@
+.footer {  
+  background: #000; /* Чорно-оранжевий фон */  
+  color: #fff; /* Білий текст */  
+  padding: 20px 0; /* Зменшено padding */  
+  text-align: center;  
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);  
+}  
+
+.footer-logo {  
+  height: 100px; /* Зменшено висоту логотипу */  
+  margin-bottom: 10px;  
+}  
+
+.footer-text {  
+  font-size: 14px;  
+  color: #ccc; /* Світло-сірий текст */  
+}  
+
+.footer-menu {  
+  list-style: none;  
+  padding: 0;  
+  margin: 10px 0; /* Додано невеликий відступ */  
+}  
+
+.footer-menu li {  
+  display: inline; /* Вирівнювання в один ряд */  
+  margin: 0 10px; /* Зменшення відступів між елементами */  
+}  
+
+.footer-link {  
+  text-decoration: none;  
+  color: #FFA500; /* Оранжевий для посилань */  
+  transition: color 0.3s ease;  
+}  
+
+.footer-link:hover {  
+  color: #fff; /* Білий при наведенні */  
+}  
+
+.social-links {  
+  display: flex;  
+  justify-content: center;  
+  gap: 15px;  
+}  
+
+.social-links a {  
+  color: #FFA500; /* Оранжевий */  
+  font-size: 24px;  
+  transition: transform 0.3s ease, color 0.3s ease;  
+}  
+
+.social-links a:hover {  
+  color: #fff; /* Білий при наведенні */  
+  transform: scale(1.2);  
+}  
+
+.footer-bottom {  
+  border-top: 1px solid rgba(255, 255, 255, 0.2);  
+  margin-top: 10px; /* Зменшено відступ */  
+  padding-top: 5px; /* Зменшено padding */  
+  font-size: 12px; /* Зменшення шрифту */  
+  color: #bbb; /* Світло-сірий для нижнього тексту */  
+}
+

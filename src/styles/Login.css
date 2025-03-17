@@ -1,0 +1,48 @@
+/* Login.css */  
+body {  
+    background-color: #f0f2f5 !important; /* Світлий фон для всього тіла */  
+    font-family: Arial, sans-serif !important; /* Основний шрифт */  
+}  
+
+.login-container {  
+    max-width: 400px !important; /* Максимальна ширина контейнера */  
+    margin: 80px auto !important; /* Центрування по вертикалі та горизонталі */  
+    padding: 20px !important; /* Внутрішні поля */  
+    background-color: white !important; /* Білий фон для форми */  
+    border-radius: 8px !important; /* Закруглені кути */  
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important; /* Тінь для ефекту глибини */  
+    text-align: center !important; /* В центр форму */  
+}  
+
+h1 {  
+    margin-bottom: 20px !important; /* Відступ знизу заголовка */  
+    color: #333 !important; /* Колір заголовка */  
+}  
+
+.login-form {  
+    display: flex !important; /* Гнучка верстка для вводу */  
+    flex-direction: column !important; /* Вертикальна організація */  
+}  
+
+.login-input {  
+    padding: 10px !important; /* Внутрішні поля для вводу */  
+    margin-bottom: 15px !important; /* Відступ між полями вводу */  
+    border: 1px solid #ccc !important; /* Сіра рамка */  
+    border-radius: 4px !important; /* Закруглені кути */  
+    font-size: 16px !important; /* Розмір шрифту */  
+}  
+
+.login-button {  
+    padding: 10px !important; /* Внутрішні поля кнопки */  
+    background-color: #FFA500 !important; /* Оранжевий колір фону */  
+    color: white !important; /* Білий текст */  
+    border: none !important; /* Без рамки */  
+    border-radius: 4px !important; /* Закруглені кути */  
+    font-size: 16px !important; /* Розмір шрифту */  
+    cursor: pointer !important; /* pointer курсор */  
+    transition: background-color 0.3s !important; /* Перехід кольору */  
+}  
+
+.login-button:hover {  
+    background-color: #FF8C00 !important; /* Темніший колір при наведенні */  
+}
